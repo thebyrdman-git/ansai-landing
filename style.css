@@ -6,15 +6,18 @@
 }
 
 :root {
-    --primary: #3b82f6;
-    --primary-dark: #2563eb;
-    --secondary: #8b5cf6;
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
-    --bg-primary: #ffffff;
-    --bg-secondary: #f9fafb;
-    --border: #e5e7eb;
-    --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    /* Solarized Light Theme */
+    --primary: #268bd2;        /* Solarized Blue */
+    --primary-dark: #2075b5;   /* Darker Blue */
+    --secondary: #6c71c4;      /* Solarized Violet */
+    --accent: #2aa198;         /* Solarized Cyan */
+    --text-primary: #073642;   /* Solarized Base02 */
+    --text-secondary: #586e75; /* Solarized Base01 */
+    --text-muted: #93a1a1;     /* Solarized Base1 */
+    --bg-primary: #fdf6e3;     /* Solarized Base3 */
+    --bg-secondary: #eee8d5;   /* Solarized Base2 */
+    --border: #93a1a1;         /* Solarized Base1 */
+    --gradient: linear-gradient(135deg, #268bd2 0%, #6c71c4 100%);
 }
 
 body {
