@@ -1,0 +1,289 @@
+#!/bin/bash
+# Ansai Landing Page Deployment CLI
+
+set -e
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+# Configuration
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOCS_SOURCE="/home/jbyrd/ansai/docs"
+SITE_DIR="/home/jbyrd/ansai/site"
+
+# Banner
+show_banner() {
+    echo -e "${CYAN}"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "   ANSAI LANDING PAGE - Deployment Automation"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo -e "${NC}"
+}
+
+# Menu
+show_menu() {
+    echo -e "${CYAN}Available Commands:${NC}"
+    echo ""
+    echo -e "  ${GREEN}build${NC}        - Build documentation from source"
+    echo -e "  ${GREEN}sync${NC}         - Sync built docs to landing page"
+    echo -e "  ${GREEN}deploy${NC}       - Build, sync, and deploy to ansai.dev"
+    echo -e "  ${GREEN}push${NC}         - Git commit and push changes"
+    echo -e "  ${GREEN}status${NC}       - Check deployment status"
+    echo -e "  ${GREEN}preview${NC}      - Preview site locally"
+    echo -e "  ${GREEN}netlify${NC}      - Deploy directly to Netlify"
+    echo ""
+}
+
+# Build documentation
+build_docs() {
+    echo -e "${CYAN}📦 Building documentation...${NC}"
+    
+    if [ ! -d "$DOCS_SOURCE" ]; then
+        echo -e "${RED}❌ Documentation source not found: $DOCS_SOURCE${NC}"
+        exit 1
+    fi
+    
+    cd /home/jbyrd/ansai
+    
+    echo -e "${BLUE}→ Running mkdocs build...${NC}"
+    mkdocs build
+    
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}✅ Documentation built successfully${NC}"
+        echo -e "${BLUE}→ Output: $SITE_DIR${NC}"
+    else
+        echo -e "${RED}❌ Build failed${NC}"
+        exit 1
+    fi
+}
+
+# Sync built docs to landing page
+sync_docs() {
+    echo -e "${CYAN}🔄 Syncing documentation to landing page...${NC}"
+    
+    if [ ! -d "$SITE_DIR" ]; then
+        echo -e "${YELLOW}⚠️  Built site not found. Building first...${NC}"
+        build_docs
+    fi
+    
+    echo -e "${BLUE}→ Removing old docs...${NC}"
+    rm -rf "$REPO_DIR/docs"
+    
+    echo -e "${BLUE}→ Copying new docs...${NC}"
+    cp -r "$SITE_DIR" "$REPO_DIR/docs"
+    
+    # Remove mkdocs.yml if it was copied (not needed in production)
+    rm -f "$REPO_DIR/docs/mkdocs.yml"
+    
+    echo -e "${GREEN}✅ Documentation synced${NC}"
+    echo -e "${BLUE}→ Size: $(du -sh "$REPO_DIR/docs" | cut -f1)${NC}"
+}
+
+# Push to GitHub
+push_changes() {
+    echo -e "${CYAN}📤 Pushing changes to GitHub...${NC}"
+    
+    cd "$REPO_DIR"
+    
+    # Check if there are changes
+    if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        echo -e "${BLUE}→ Staging changes...${NC}"
+        git add .
+        
+        echo -e "${BLUE}→ Creating commit...${NC}"
+        COMMIT_MSG="${1:-Update documentation and landing page}"
+        git commit -m "$COMMIT_MSG" --no-verify
+        
+        echo -e "${BLUE}→ Pushing to GitHub...${NC}"
+        git push origin main
+        
+        if [ $? -eq 0 ]; then
+            echo -e "${GREEN}✅ Pushed successfully${NC}"
+            echo -e "${CYAN}→ Netlify will auto-deploy in 2-3 minutes${NC}"
+            echo -e "${CYAN}→ Check: https://ansai.dev${NC}"
+        else
+            echo -e "${RED}❌ Push failed${NC}"
+            echo -e "${YELLOW}→ You may need to configure the remote:${NC}"
+            echo -e "${YELLOW}   git remote set-url origin https://github.com/YOUR_USERNAME/ansai-landing.git${NC}"
+            exit 1
+        fi
+    else
+        echo -e "${YELLOW}⚠️  No changes to push${NC}"
+    fi
+}
+
+# Full deployment
+deploy() {
+    show_banner
+    echo -e "${CYAN}🚀 Starting full deployment...${NC}"
+    echo ""
+    
+    build_docs
+    echo ""
+    
+    sync_docs
+    echo ""
+    
+    push_changes "Deploy updated documentation to ansai.dev"
+    echo ""
+    
+    echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "${GREEN}✅ Deployment complete!${NC}"
+    echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo ""
+    echo -e "${CYAN}📊 Your site will be live at:${NC}"
+    echo -e "   ${BLUE}https://ansai.dev${NC}"
+    echo -e "   ${BLUE}https://ansai.dev/docs/${NC}"
+    echo ""
+    echo -e "${YELLOW}→ Allow 2-3 minutes for Netlify deployment${NC}"
+}
+
+# Check status
+check_status() {
+    show_banner
+    echo -e "${CYAN}📊 Deployment Status${NC}"
+    echo ""
+    
+    # Check docs source
+    if [ -d "$DOCS_SOURCE" ]; then
+        echo -e "${GREEN}✅${NC} Documentation source: $DOCS_SOURCE"
+    else
+        echo -e "${RED}❌${NC} Documentation source not found"
+    fi
+    
+    # Check built site
+    if [ -d "$SITE_DIR" ]; then
+        SITE_SIZE=$(du -sh "$SITE_DIR" | cut -f1)
+        echo -e "${GREEN}✅${NC} Built site: $SITE_DIR (${SITE_SIZE})"
+    else
+        echo -e "${YELLOW}⚠️${NC}  Built site not found (run 'ansai build')"
+    fi
+    
+    # Check landing page docs
+    if [ -d "$REPO_DIR/docs" ]; then
+        DOCS_SIZE=$(du -sh "$REPO_DIR/docs" | cut -f1)
+        echo -e "${GREEN}✅${NC} Landing page docs: $REPO_DIR/docs (${DOCS_SIZE})"
+    else
+        echo -e "${YELLOW}⚠️${NC}  Landing page docs not synced (run 'ansai sync')"
+    fi
+    
+    echo ""
+    
+    # Git status
+    cd "$REPO_DIR"
+    if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        echo -e "${YELLOW}⚠️${NC}  Uncommitted changes detected"
+        echo ""
+        git status --short | head -10
+    else
+        echo -e "${GREEN}✅${NC} Git: Clean working directory"
+    fi
+    
+    echo ""
+    echo -e "${BLUE}→ Remote:${NC} $(git remote get-url origin 2>/dev/null || echo 'Not configured')"
+    echo -e "${BLUE}→ Branch:${NC} $(git branch --show-current)"
+    echo -e "${BLUE}→ Latest commit:${NC} $(git log -1 --oneline)"
+}
+
+# Preview locally
+preview() {
+    show_banner
+    echo -e "${CYAN}👀 Starting local preview...${NC}"
+    echo ""
+    
+    cd /home/jbyrd/ansai
+    
+    echo -e "${GREEN}→ MkDocs will serve documentation at:${NC}"
+    echo -e "   ${BLUE}http://localhost:8000${NC}"
+    echo ""
+    echo -e "${YELLOW}Press Ctrl+C to stop${NC}"
+    echo ""
+    
+    mkdocs serve
+}
+
+# Deploy directly to Netlify
+deploy_netlify() {
+    show_banner
+    echo -e "${CYAN}🚀 Deploying directly to Netlify...${NC}"
+    echo ""
+    
+    # Build and sync first
+    build_docs
+    echo ""
+    sync_docs
+    echo ""
+    
+    cd "$REPO_DIR"
+    
+    # Check if netlify CLI is installed
+    if ! command -v netlify &> /dev/null; then
+        echo -e "${YELLOW}→ Installing Netlify CLI...${NC}"
+        npm install -g netlify-cli
+    fi
+    
+    echo -e "${BLUE}→ Deploying to Netlify...${NC}"
+    netlify deploy --prod --dir=docs
+    
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}✅ Deployed successfully${NC}"
+    else
+        echo -e "${RED}❌ Deployment failed${NC}"
+        echo -e "${YELLOW}→ You may need to login first: netlify login${NC}"
+        exit 1
+    fi
+}
+
+# Main
+main() {
+    if [ $# -eq 0 ]; then
+        show_banner
+        show_menu
+        exit 0
+    fi
+    
+    case "$1" in
+        build)
+            show_banner
+            build_docs
+            ;;
+        sync)
+            show_banner
+            sync_docs
+            ;;
+        deploy)
+            deploy
+            ;;
+        push)
+            show_banner
+            push_changes "${2:-Update landing page}"
+            ;;
+        status)
+            check_status
+            ;;
+        preview)
+            preview
+            ;;
+        netlify)
+            deploy_netlify
+            ;;
+        help|--help|-h)
+            show_banner
+            show_menu
+            ;;
+        *)
+            echo -e "${RED}Unknown command: $1${NC}"
+            echo ""
+            show_menu
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
+
