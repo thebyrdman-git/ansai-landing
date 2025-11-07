@@ -1,16 +1,4 @@
-# macOS
+.netlify
+node_modules/
 .DS_Store
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
 *.log
-
-# Temporary files
-*.tmp
-
-
