@@ -1,0 +1,21 @@
+[build]
+  # No build command needed - we deploy pre-built docs
+  command = ""
+  publish = "."
+
+# Redirects for the documentation
+[[redirects]]
+  from = "/docs/*"
+  to = "/docs/:splat"
+  status = 200
+  force = false
+
+# Ensure docs directory is served properly
+[[headers]]
+  for = "/docs/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
