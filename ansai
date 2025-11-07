@@ -35,6 +35,7 @@ show_menu() {
     echo -e "  ${GREEN}push${NC}         - Git commit and push changes"
     echo -e "  ${GREEN}status${NC}       - Check deployment status"
     echo -e "  ${GREEN}preview${NC}      - Preview site locally"
+    echo -e "  ${GREEN}github${NC}       - Create GitHub repository"
     echo -e "  ${GREEN}netlify${NC}      - Deploy directly to Netlify"
     echo ""
 }
@@ -207,6 +208,74 @@ preview() {
     mkdocs serve
 }
 
+# Create GitHub repository
+create_github_repo() {
+    show_banner
+    echo -e "${CYAN}📦 Creating GitHub repository...${NC}"
+    echo ""
+    
+    cd "$REPO_DIR"
+    
+    # Check if gh CLI is installed
+    if ! command -v gh &> /dev/null; then
+        echo -e "${RED}❌ GitHub CLI not found${NC}"
+        echo -e "${YELLOW}→ Install with: brew install gh${NC}"
+        exit 1
+    fi
+    
+    # Check if already a git repo
+    if [ ! -d ".git" ]; then
+        echo -e "${BLUE}→ Initializing git repository...${NC}"
+        git init
+        git branch -M main
+    fi
+    
+    # Check if remote already exists
+    if git remote get-url origin &> /dev/null; then
+        echo -e "${YELLOW}⚠️  Remote 'origin' already exists:${NC}"
+        git remote -v
+        echo ""
+        read -p "Remove existing remote and create new repo? (y/N): " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            git remote remove origin
+        else
+            echo -e "${YELLOW}Cancelled${NC}"
+            exit 0
+        fi
+    fi
+    
+    # Get repository details
+    REPO_NAME="${1:-ansai-landing}"
+    REPO_DESC="${2:-Ansai Automation Framework landing page and documentation}"
+    
+    echo -e "${BLUE}→ Creating GitHub repository: ${REPO_NAME}${NC}"
+    echo -e "${BLUE}→ Description: ${REPO_DESC}${NC}"
+    echo ""
+    
+    # Create the repository
+    gh repo create "$REPO_NAME" \
+        --public \
+        --description "$REPO_DESC" \
+        --source=. \
+        --remote=origin \
+        --push=false
+    
+    if [ $? -eq 0 ]; then
+        echo ""
+        echo -e "${GREEN}✅ GitHub repository created successfully${NC}"
+        echo -e "${BLUE}→ Repository: $(gh repo view --json url -q .url)${NC}"
+        echo ""
+        echo -e "${CYAN}Next steps:${NC}"
+        echo -e "  1. Run: ${GREEN}./ansai deploy${NC} to push and deploy"
+        echo -e "  2. Configure Netlify to connect to this repo"
+    else
+        echo -e "${RED}❌ Failed to create repository${NC}"
+        echo -e "${YELLOW}→ You may need to login first: gh auth login${NC}"
+        exit 1
+    fi
+}
+
 # Deploy directly to Netlify
 deploy_netlify() {
     show_banner
@@ -268,6 +337,9 @@ main() {
             ;;
         preview)
             preview
+            ;;
+        github)
+            create_github_repo "${2:-ansai-landing}" "${3:-Ansai Automation Framework landing page and documentation}"
             ;;
         netlify)
             deploy_netlify
