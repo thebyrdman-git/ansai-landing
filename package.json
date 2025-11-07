@@ -1,0 +1,15 @@
+{
+  "name": "ansai-landing",
+  "version": "1.0.0",
+  "description": "Ansai landing page and documentation",
+  "scripts": {
+    "build": "echo 'No build needed - deploying pre-built static files' && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thebyrdman-git/ansai-landing.git"
+  },
+  "author": "Ansai Community",
+  "license": "MIT"
+}
+
