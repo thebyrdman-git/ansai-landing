@@ -2,6 +2,8 @@
 
 > **Enterprise-grade Ansible automation with intelligent workflows**  
 > Styled after [Red Hat Documentation](https://docs.redhat.com/en/)
+>
+> 🗣️ **Pronunciation**: "an-sigh" (rhymes with "bonsai") or "ans-A-I" (Ansible + AI)
 
 ---
 
@@ -21,9 +23,7 @@ Welcome to the official Ansai documentation. Ansai is an Ansible-native automati
 
     New to Ansai? Start here to learn the basics and get up and running quickly.
 
-    → [Introduction](01-introduction.md)  
-    → [Quick Start](02-quickstart.md)  
-    → [Installation](03-installation.md)
+    → [Introduction](01-introduction.md)
 
 -   🏛️ __Core Concepts__
 
@@ -31,9 +31,7 @@ Welcome to the official Ansai documentation. Ansai is an Ansible-native automati
 
     Understand Ansai's architecture, workflow design, and interactive automation patterns.
 
-    → [Architecture](04-architecture.md)  
-    → [Workflow Design](05-workflows.md)  
-    → [Interactive Playbooks](06-interactive.md)
+    → [Overview](core-concepts/)
 
 -   💻 __Developer Guide__
 
@@ -41,9 +39,7 @@ Welcome to the official Ansai documentation. Ansai is an Ansible-native automati
 
     Build, test, and extend Ansai with comprehensive developer documentation.
 
-    → [Development Environment](07-development.md)  
-    → [Testing & Quality](08-testing.md)  
-    → [API Integration](10-api-integration.md)
+    → [Overview](developer-guide/)
 
 -   ⚙️ __Administration__
 
@@ -51,9 +47,7 @@ Welcome to the official Ansai documentation. Ansai is an Ansible-native automati
 
     Deploy, secure, and monitor Ansai in production environments.
 
-    → [Security & Secrets](11-security.md)  
-    → [Production Deployment](12-deployment.md)  
-    → [Monitoring](14-monitoring.md)
+    → [Overview](administration/)
 
 -   🏢 __Enterprise__
 
@@ -61,8 +55,6 @@ Welcome to the official Ansai documentation. Ansai is an Ansible-native automati
 
     Scale Ansai across your organization with enterprise adoption strategies.
 
-    → [Enterprise Adoption](15-enterprise.md)  
-    → [Automation as Code](16-automation-as-code.md)  
     → [Ansible Lightspeed](18-lightspeed.md)
 
 -   📖 __Reference__
@@ -71,9 +63,7 @@ Welcome to the official Ansai documentation. Ansai is an Ansible-native automati
 
     Complete reference documentation for all Ansai capabilities.
 
-    → [Configuration](19-configuration.md)  
-    → [Workflow Catalog](20-workflow-catalog.md)  
-    → [Best Practices](21-best-practices.md)
+    → [Workflow Catalog](20-workflow-catalog.md)
 
 </div>
 

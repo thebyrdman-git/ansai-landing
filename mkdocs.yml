@@ -135,43 +135,23 @@ nav:
   - Get Started:
     - get-started/index.md
     - Introduction: 01-introduction.md
-    - Quick Start: 02-quickstart.md
-    - Installation: 03-installation.md
   
   - Core Concepts:
     - core-concepts/index.md
-    - Architecture Patterns: 04-architecture.md
-    - Workflow Design: 05-workflows.md
-    - Interactive Playbooks: 06-interactive.md
   
   - Developer Guide:
     - developer-guide/index.md
-    - Development Environment: 07-development.md
-    - Testing & Quality: 08-testing.md
-    - CLI Design Patterns: 09-cli-patterns.md
-    - API Integration: 10-api-integration.md
   
   - Administration:
     - administration/index.md
-    - Security & Secrets: 11-security.md
-    - Production Deployment: 12-deployment.md
-    - Service Orchestration: 13-service-orchestration.md
-    - Monitoring & Observability: 14-monitoring.md
   
   - Enterprise:
     - enterprise/index.md
-    - Enterprise Adoption: 15-enterprise.md
-    - Automation as Code: 16-automation-as-code.md
-    - AI/ML Integration: 17-ai-integration.md
     - Ansible Lightspeed Convergence: 18-lightspeed.md
   
   - Reference:
     - reference/index.md
-    - Configuration Reference: 19-configuration.md
     - Complete Workflow Catalog: 20-workflow-catalog.md
-    - Best Practices: 21-best-practices.md
-    - Glossary & FAQ: 22-reference.md
-    - Tags: tags.md
 
 # Extra configuration
 extra:
