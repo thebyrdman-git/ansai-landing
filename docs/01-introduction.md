@@ -1,6 +1,6 @@
 # Chapter 1: Introduction to Ansai
 
-[← Back to Index](index.md) | [Next: Quick Start →](02-quickstart.md)
+[← Back to Index](index.md) | [Next: Lightspeed →](18-lightspeed.md)
 
 ---
 
@@ -455,9 +455,9 @@ Ansai is successful when:
 Ready to dive in?
 
 **Next Steps:**
-1. [Chapter 2: Quick Start](02-quickstart.md) - Get Ansai running in 15 minutes
-2. [Chapter 4: Architecture](04-architecture.md) - Understand the design
-3. [Chapter 7: Development](07-development.md) - Start building workflows
+1. [Workflow Catalog](20-workflow-catalog.md) - Explore available workflows
+2. [Ansible Lightspeed](18-lightspeed.md) - AI-powered automation
+3. [Core Concepts](core-concepts/) - Understand the architecture
 
 **Key Concepts to Remember:**
 - Everything is a playbook
@@ -467,7 +467,7 @@ Ready to dive in?
 
 ---
 
-[← Back to Index](index.md) | [Next: Quick Start →](02-quickstart.md)
+[← Back to Index](index.md) | [Next: Lightspeed →](18-lightspeed.md)
 
 **Chapter 1 of 22** | [View All Chapters](index.md#documentation-structure)
 
