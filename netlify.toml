@@ -1,12 +1,25 @@
+# Netlify configuration for Ansai Landing + Docs
+# 
+# This repo serves BOTH:
+# - ansai.dev (landing page) - uses publish = "."
+# - docs.ansai.dev (documentation) - uses publish = "site"
+#
+# You need TWO Netlify sites pointing to this repo with different configs
+
 [build]
-  publish = "."
-  
-# Ensure docs directory is served properly
+  # Build the MkDocs documentation
+  command = "pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-print-site-plugin && python -m mkdocs build"
+  publish = "."  # For ansai.dev (landing page)
+
+# For docs.ansai.dev, configure a SECOND Netlify site with:
+# - Repository: thebyrdman-git/ansai-landing
+# - Build command: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-print-site-plugin && python -m mkdocs build
+# - Publish directory: site
+
 [[headers]]
-  for = "/docs/*"
+  for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-

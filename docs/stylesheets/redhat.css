@@ -1,0 +1,333 @@
+/* Red Hat Documentation Style
+ * Inspired by: https://docs.redhat.com/en/
+ */
+
+:root {
+  /* Red Hat color palette */
+  --rh-red: #ee0000;
+  --rh-dark-red: #a30000;
+  --rh-black: #000000;
+  --rh-white: #ffffff;
+  --rh-gray-10: #f0f0f0;
+  --rh-gray-20: #d2d2d2;
+  --rh-gray-30: #b8b8b8;
+  --rh-gray-40: #8a8d90;
+  
+  /* Typography */
+  --rh-font-family: 'Red Hat Text', 'Overpass', sans-serif;
+  --rh-font-family-mono: 'Red Hat Mono', 'Overpass Mono', monospace;
+}
+
+/* Import Red Hat fonts */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;500&family=Red+Hat+Text:wght@400;500;700&display=swap');
+
+/* Global typography */
+body {
+  font-family: var(--rh-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre {
+  font-family: var(--rh-font-family-mono);
+}
+
+/* Header customization */
+.md-header {
+  background-color: var(--rh-black);
+  color: var(--rh-white);
+}
+
+.md-header__title {
+  font-weight: 500;
+}
+
+/* Hide logo */
+.md-logo {
+  display: none;
+}
+
+/* Navigation tabs - Red Hat style */
+.md-tabs {
+  background-color: var(--rh-red);
+  color: var(--rh-white);
+}
+
+.md-tabs__link {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  opacity: 1;
+  background-color: var(--rh-dark-red);
+}
+
+/* Sidebar navigation */
+.md-nav__title {
+  font-weight: 700;
+  color: var(--rh-black);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.md-nav__link--active {
+  color: var(--rh-red);
+  font-weight: 500;
+}
+
+.md-nav__link:hover {
+  color: var(--rh-red);
+}
+
+/* Content area */
+.md-content {
+  max-width: 1200px;
+}
+
+.md-content__inner {
+  padding-top: 1rem;
+}
+
+/* Headings - Red Hat style */
+.md-typeset h1 {
+  color: var(--rh-black);
+  font-weight: 500;
+  border-bottom: 2px solid var(--rh-gray-10);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.md-typeset h2 {
+  color: var(--rh-black);
+  font-weight: 500;
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--rh-gray-20);
+  padding-bottom: 0.3rem;
+}
+
+.md-typeset h3 {
+  color: var(--rh-dark-red);
+  font-weight: 500;
+}
+
+/* Links */
+.md-typeset a {
+  color: var(--rh-red);
+  text-decoration: none;
+}
+
+.md-typeset a:hover {
+  color: var(--rh-dark-red);
+  text-decoration: underline;
+}
+
+/* Admonitions - Red Hat style */
+.md-typeset .admonition {
+  border-left: 4px solid var(--rh-red);
+  background-color: var(--rh-gray-10);
+}
+
+.md-typeset .admonition.note {
+  border-left-color: #0066cc;
+}
+
+.md-typeset .admonition.warning {
+  border-left-color: #f0ab00;
+}
+
+.md-typeset .admonition.danger {
+  border-left-color: var(--rh-red);
+}
+
+.md-typeset .admonition-title {
+  font-weight: 700;
+  color: var(--rh-black);
+}
+
+/* Code blocks */
+.md-typeset pre {
+  background-color: #1e1e1e;
+  border: 1px solid var(--rh-gray-20);
+  border-radius: 4px;
+}
+
+.md-typeset code {
+  background-color: var(--rh-gray-10);
+  color: var(--rh-dark-red);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--rh-gray-20);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--rh-gray-10);
+  color: var(--rh-black);
+  font-weight: 700;
+}
+
+.md-typeset table:not([class]) tr:hover {
+  background-color: var(--rh-gray-10);
+}
+
+/* Buttons */
+.md-button {
+  background-color: var(--rh-red);
+  color: var(--rh-white);
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.md-button:hover {
+  background-color: var(--rh-dark-red);
+}
+
+.md-button--primary {
+  background-color: var(--rh-black);
+  color: var(--rh-white);
+}
+
+.md-button--primary:hover {
+  background-color: var(--rh-dark-red);
+}
+
+/* Search */
+.md-search__form {
+  border-radius: 3px;
+}
+
+.md-search__input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.md-search__input:focus {
+  background-color: var(--rh-white);
+  border-color: var(--rh-red);
+}
+
+/* Footer */
+.md-footer {
+  background-color: var(--rh-black);
+  color: var(--rh-white);
+}
+
+.md-footer-meta {
+  background-color: var(--rh-black);
+}
+
+/* Version selector */
+.md-version__current {
+  color: var(--rh-red);
+  font-weight: 500;
+}
+
+/* Tooltips */
+.md-tooltip {
+  background-color: var(--rh-black);
+  color: var(--rh-white);
+  border-radius: 3px;
+}
+
+/* Category cards (index pages) */
+.category-card {
+  border: 1px solid var(--rh-gray-20);
+  border-left: 4px solid var(--rh-red);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--rh-white);
+  transition: all 0.2s ease;
+}
+
+.category-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--rh-dark-red);
+}
+
+.category-card h3 {
+  margin-top: 0;
+  color: var(--rh-red);
+}
+
+.category-card p {
+  color: var(--rh-gray-40);
+  margin: 0.5rem 0;
+}
+
+.category-card .time-to-complete {
+  font-size: 0.85rem;
+  color: var(--rh-gray-40);
+  font-style: italic;
+}
+
+/* Breadcrumbs */
+.md-path {
+  color: var(--rh-gray-40);
+}
+
+.md-path__link {
+  color: var(--rh-red);
+}
+
+/* Tags */
+.md-tag {
+  background-color: var(--rh-gray-10);
+  color: var(--rh-black);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  padding: 0.2em 0.6em;
+}
+
+.md-tag:hover {
+  background-color: var(--rh-red);
+  color: var(--rh-white);
+}
+
+/* Print styles */
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer {
+    display: none;
+  }
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title {
+    background-color: var(--rh-red);
+    color: var(--rh-white);
+  }
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] {
+  --rh-black: #ffffff;
+  --rh-white: #000000;
+  --rh-gray-10: #1e1e1e;
+  --rh-gray-20: #2d2d2d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+  color: #ffffff !important;
+  border-bottom-color: var(--rh-gray-20);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: var(--rh-gray-10);
+  color: #ff6b6b;
+}
+

@@ -1,0 +1,17 @@
+# Netlify configuration for docs.ansai.dev
+# 
+# This is a REFERENCE configuration for the docs.ansai.dev Netlify site
+# In Netlify UI, configure the ansai-enterprise site with these settings
+
+[build]
+  command = "pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-print-site-plugin && python -m mkdocs build"
+  publish = "site"  # This is the key difference - publish the built MkDocs site
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
