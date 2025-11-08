@@ -1,7 +1,6 @@
 # Ansai Automation Framework
 
 > **Enterprise-grade Ansible automation with intelligent workflows**  
-> Styled after [Red Hat Documentation](https://docs.redhat.com/en/)
 >
 > 🗣️ **Pronunciation**: "an-sigh" (rhymes with "bonsai") or "ans-A-I" (Ansible + AI)
 
