@@ -129,36 +129,36 @@ All 29 workflows documented with examples, complexity ratings, and usage pattern
     **Recommended path:**
     
     1. Read [Introduction](01-introduction.md) (15 min)
-    2. Follow [Quick Start](02-quickstart.md) (15 min)
-    3. Review [Get Started Guide](get-started/index.md)
-    4. Explore [Workflow Catalog](20-workflow-catalog.md)
+    2. Review [Get Started Guide](get-started/) (15 min)
+    3. Explore [Workflow Catalog](20-workflow-catalog.md) (20 min)
+    4. Study [Core Concepts](core-concepts/) (30 min)
 
 === "Developers"
 
     **Recommended path:**
     
     1. Review [Introduction](01-introduction.md) (15 min)
-    2. Study [Architecture](04-architecture.md) (30 min)
-    3. Set up [Development Environment](07-development.md) (20 min)
-    4. Explore [API Integration](10-api-integration.md) (30 min)
+    2. Study [Core Concepts](core-concepts/) (30 min)
+    3. Explore [Developer Guide](developer-guide/) (30 min)
+    4. Review [Workflow Catalog](20-workflow-catalog.md) (20 min)
 
 === "Product Managers"
 
     **Recommended path:**
     
     1. Read [Introduction](01-introduction.md) (15 min)
-    2. Review [Architecture](04-architecture.md) (30 min)
-    3. Explore [Enterprise Adoption](15-enterprise.md) (20 min)
+    2. Review [Core Concepts](core-concepts/) (30 min)
+    3. Explore [Enterprise Guide](enterprise/) (20 min)
     4. Study [Ansible Lightspeed](18-lightspeed.md) (30 min)
 
 === "System Administrators"
 
     **Recommended path:**
     
-    1. Review [Installation Guide](03-installation.md) (30 min)
-    2. Study [Production Deployment](12-deployment.md) (45 min)
-    3. Configure [Security & Secrets](11-security.md) (30 min)
-    4. Set up [Monitoring](14-monitoring.md) (30 min)
+    1. Review [Get Started Guide](get-started/) (30 min)
+    2. Study [Administration Guide](administration/) (45 min)
+    3. Explore [Workflow Catalog](20-workflow-catalog.md) (30 min)
+    4. Review [Enterprise Guide](enterprise/) (30 min)
 
 ---
 
@@ -252,19 +252,19 @@ This documentation is styled after the professional [Red Hat Documentation](http
 
     Get Ansai running in 15 minutes
 
-    → [Start tutorial](02-quickstart.md)
+    → [Start tutorial](get-started/)
 
 -   📚 __Read the Docs__
 
     Comprehensive documentation
 
-    → [Browse guides](get-started/index.md)
+    → [Browse guides](get-started/)
 
--   ⬇️ __Install Ansai__
+-   ⬇️ __Developer Guide__
 
-    Complete installation guide
+    Build and extend Ansai
 
-    → [Install now](03-installation.md)
+    → [Developer docs](developer-guide/)
 
 -   🐙 __View on GitHub__
 
