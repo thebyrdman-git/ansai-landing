@@ -36,31 +36,30 @@ Before installing Ansai, ensure you have:
 
 ## Installation Methods
 
-### Method 1: Clone from GitHub (Recommended)
+### Method 1: Install via pip (Recommended)
+
+```bash
+# Install from PyPI
+pip install ansai
+
+# Verify installation
+ansai --version
+
+# See available commands
+ansai --help
+```
+
+### Method 2: Install from Source
 
 ```bash
 # Clone the repository
-git clone https://github.com/ansai/framework.git
-cd framework
+git clone https://github.com/thebyrdman-git/ansai-landing.git
+cd ansai-landing
 
-# Set up Python virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Install Ansible collections (if needed)
-ansible-galaxy collection install -r requirements.yml
+# Install in development mode
+pip install -e .
 
 # Verify installation
-./ansai --version
-```
-
-### Method 2: Install via pip (Coming Soon)
-
-```bash
-pip install ansai
 ansai --version
 ```
 
@@ -120,28 +119,39 @@ all:
 
 ### Test Your Installation
 
-Run the verification workflow:
+Verify Ansai is working correctly:
 
 ```bash
-# Test Ansai CLI
-./ansai --help
+# Check version
+ansai --version
 
-# Run a test playbook
-ansible-playbook ansible/playbooks/test-connection.yml
+# See available commands
+ansai --help
 
-# Verify connectivity
+# List available workflows
+ansai list
+
+# Test Ansible connectivity
 ansible all -m ping
 ```
 
 ### Expected Output
 
 ```
-✓ Ansai CLI initialized
-✓ Ansible version: 2.14.0
-✓ Python version: 3.10.0
-✓ All dependencies installed
-✓ Configuration loaded successfully
+$ ansai --version
+ansai, version 1.0.0
 
+$ ansai list
+📋 Available Ansai workflows:
+
+  🚀 deploy        - Deploy applications
+  💾 backup        - Backup systems
+  🔧 configure     - Configure services
+  🏥 health-check  - System health check
+
+📚 See full catalog: https://docs.ansai.dev/20-workflow-catalog/
+
+$ ansible all -m ping
 localhost | SUCCESS => {
     "changed": false,
     "ping": "pong"
