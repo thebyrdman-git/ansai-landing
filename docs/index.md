@@ -220,24 +220,21 @@ Ansai powers automation across multiple scenarios:
 <div class="grid" markdown>
 
 !!! question "Need Help?"
-    - **Documentation**: Browse guides above
-    - **GitHub Issues**: Report bugs or request features
-    - **Discussions**: Ask questions and share ideas
-    - **Contributing**: Help improve Ansai
+    - **Documentation**: [docs.ansai.dev](https://docs.ansai.dev)
+    - **Community Forum**: [GitHub Discussions](https://github.com/thebyrdman-git/ansai-landing/discussions)
+    - **Report Bugs**: [GitHub Issues](https://github.com/thebyrdman-git/ansai-landing/issues)
+    - **Feature Requests**: [GitHub Discussions - Ideas](https://github.com/thebyrdman-git/ansai-landing/discussions/categories/ideas)
 
 !!! info "Resources"
     - **Ansible Docs**: [docs.ansible.com](https://docs.ansible.com)
-    - **Red Hat Docs**: [docs.redhat.com](https://docs.redhat.com/en/)
-    - **GitHub**: [ansai/framework](#)
-    - **Community**: [Forum](#) | [Discord](#)
+    - **GitHub Repository**: [thebyrdman-git/ansai-landing](https://github.com/thebyrdman-git/ansai-landing)
+    - **Workflow Catalog**: [Browse workflows](20-workflow-catalog.md)
 
 </div>
 
 ---
 
 ## Credits
-
-This documentation is styled after the professional [Red Hat Documentation](https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6) design.
 
 **Ansible®** is a registered trademark of Red Hat, Inc.
 
