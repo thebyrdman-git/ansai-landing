@@ -20,11 +20,11 @@ theme:
   name: material
   
   palette:
-    # Light mode - Blue theme
+    # Light mode - Red Hat colors
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue
-      accent: light blue
+      primary: red
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -32,8 +32,8 @@ theme:
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
-      accent: light blue
+      primary: red
+      accent: deep orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -81,6 +81,8 @@ plugins:
   - search:
       lang: en
       separator: '[\s\-\.]+'
+  - tags:
+      tags_file: tags.md
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
@@ -134,6 +136,8 @@ nav:
     - get-started/index.md
     - Introduction: 01-introduction.md
     - Installation: 02-installation.md
+    - AI Setup: 03-ai-setup.md
+    - Finance Basics: 04-finance-basics.md
   
   - Core Concepts:
     - core-concepts/index.md
@@ -227,4 +231,3 @@ validation:
     not_found: warn
     absolute_links: warn
     unrecognized_links: warn
-
