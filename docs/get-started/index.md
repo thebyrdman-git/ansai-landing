@@ -17,7 +17,7 @@ Learn what Ansai is, its core philosophy, and architecture principles.
 
 ---
 
-### Quick Start Guide
+### [Quick Start](../02-installation.md)
 Get Ansai running in 15 minutes with this hands-on guide.
 
 **Topics covered:**
@@ -26,11 +26,11 @@ Get Ansai running in 15 minutes with this hands-on guide.
 - First workflow execution
 - Verification and testing
 
-**Coming soon** - Check [Workflow Catalog](../20-workflow-catalog.md) for examples in the meantime.
+**Time to complete:** 15 minutes
 
 ---
 
-### Installation Guide
+### [Installation Guide](../02-installation.md)
 Complete installation and configuration documentation.
 
 **Topics covered:**
@@ -39,7 +39,7 @@ Complete installation and configuration documentation.
 - Configuration options
 - Post-installation verification
 
-**Coming soon** - Review [Introduction](../01-introduction.md) for setup overview.
+**Time to complete:** 20 minutes
 
 ---
 
@@ -47,8 +47,8 @@ Complete installation and configuration documentation.
 
 ### For first-time users
 1. Read [Introduction](../01-introduction.md) to understand the framework
-2. Explore [Workflow Catalog](../20-workflow-catalog.md) for examples
-3. Review [Enterprise Guide](../enterprise/) for adoption strategies
+2. Follow [Installation Guide](../02-installation.md) to set up Ansai
+3. Explore [Workflow Catalog](../20-workflow-catalog.md) for examples
 
 ### For experienced Ansible users
 1. Review [Introduction](../01-introduction.md) for Ansai-specific patterns
