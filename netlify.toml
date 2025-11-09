@@ -7,9 +7,9 @@
 # You need TWO Netlify sites pointing to this repo with different configs
 
 [build]
-  # Build the MkDocs documentation
-  command = "pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-print-site-plugin && python -m mkdocs build"
-  publish = "."  # For ansai.dev (landing page)
+  # For ansai.dev (landing page) - no build needed, just serve static HTML
+  command = "echo 'Serving landing page - no build needed'"
+  publish = "."  # Serve index.html from root
 
 # For docs.ansai.dev, configure a SECOND Netlify site with:
 # - Repository: thebyrdman-git/ansai-landing
