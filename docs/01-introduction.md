@@ -414,16 +414,16 @@ Ansai is successful when:
 ## Community & Ecosystem
 
 ### Learning Resources
-- **This Documentation** - Comprehensive guide
-- **Ansible Docs** - https://docs.ansible.com
-- **Example Playbooks** - In the repository
-- **Community Forum** - Q&A and discussions
+- **This Documentation** - [docs.ansai.dev](https://docs.ansai.dev)
+- **Ansible Docs** - [docs.ansible.com](https://docs.ansible.com)
+- **Workflow Catalog** - [Browse workflows](20-workflow-catalog.md)
+- **Community Forum** - [GitHub Discussions](https://github.com/thebyrdman-git/ansai-landing/discussions)
 
 ### Contributing
-- **Report Issues** - GitHub Issues
+- **Report Issues** - [GitHub Issues](https://github.com/thebyrdman-git/ansai-landing/issues)
 - **Share Workflows** - Pull requests welcome
 - **Improve Docs** - Documentation PRs
-- **Join Discussions** - Community forums
+- **Join Discussions** - [Community Forum](https://github.com/thebyrdman-git/ansai-landing/discussions)
 
 ---
 

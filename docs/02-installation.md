@@ -229,9 +229,9 @@ ansible all -m ping -vvv
 ## Getting Help
 
 - **Documentation**: [docs.ansai.dev](https://docs.ansai.dev)
-- **GitHub Issues**: [github.com/ansai/framework/issues](https://github.com/ansai/framework/issues)
-- **Community Forum**: Coming soon
-- **Email Support**: support@ansai.dev
+- **Community Forum**: [GitHub Discussions](https://github.com/thebyrdman-git/ansai-landing/discussions)
+- **Bug Reports**: [GitHub Issues](https://github.com/thebyrdman-git/ansai-landing/issues)
+- **Feature Requests**: [GitHub Discussions](https://github.com/thebyrdman-git/ansai-landing/discussions/categories/ideas)
 
 ---
 

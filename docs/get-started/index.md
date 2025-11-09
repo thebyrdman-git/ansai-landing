@@ -59,7 +59,7 @@ Complete installation and configuration documentation.
 
 ## Additional resources
 
-- **[Video tutorials](#)** - Watch step-by-step guides
-- **[Example workflows](#)** - Download starter templates
-- **[Community forum](#)** - Get help from the community
+- **[Community Forum](https://github.com/thebyrdman-git/ansai-landing/discussions)** - Ask questions and get help
+- **[Example workflows](../20-workflow-catalog.md)** - Browse the workflow catalog
+- **[GitHub Repository](https://github.com/thebyrdman-git/ansai-landing)** - View source and contribute
 
