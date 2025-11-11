@@ -73,6 +73,7 @@ Welcome to the official Ansai documentation. Ansai is an Ansible-native automati
 **Ansai** (Ansible + AI) is an automation framework that demonstrates:
 
 - ✅ **Ansible-First Design** - Everything is a playbook
+- ✅ **Git-as-Code** - Version control operations as workflows
 - ✅ **Self-Documenting** - Workflows explain themselves
 - ✅ **Interactive by Default** - User-friendly automation
 - ✅ **Developer-Focused** - Built for productivity

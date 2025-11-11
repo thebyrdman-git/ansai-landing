@@ -141,6 +141,7 @@ nav:
   
   - Core Concepts:
     - core-concepts/index.md
+    - Git-as-Code Philosophy: git-as-code.md
   
   - Developer Guide:
     - developer-guide/index.md
