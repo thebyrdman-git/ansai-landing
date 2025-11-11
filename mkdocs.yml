@@ -141,7 +141,9 @@ nav:
   
   - Core Concepts:
     - core-concepts/index.md
+    - Everything-as-Code: everything-as-code.md
     - Git-as-Code Philosophy: git-as-code.md
+    - Orchestration Architecture: orchestration-architecture.md
   
   - Developer Guide:
     - developer-guide/index.md
